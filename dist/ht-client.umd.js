@@ -5336,10 +5336,10 @@
    *     url: 'http://localhost:8080/api',
    *     token: '*',
    *         error: function(err) {
-   *             consoloe.log('client nodejs: error:', err)
+   *             console.log('client nodejs: error:', err)
    *         },
    *         reconn: function() {
-   *             consoloe.log('client nodejs: reconn')
+   *             console.log('client nodejs: reconn')
    *         },
    * }
    *
@@ -5351,12 +5351,18 @@
    *         function core(ps) {
    *             wo.add(ps)
    *                 .then(function(r) {
-   *                     consoloe.log(`client nodejs: add(${JSON.stringify(ps)})=${r}`)
+   *                     console.log(`client nodejs: add(${JSON.stringify(ps)})=${r}`)
    *                 })
+   *                 .catch(function(err) {
+   *                     console.log('client nodejs: add: catch: ', err)
+   *                  })
    *             wo.minu(ps)
    *                 .then(function(r) {
-   *                     consoloe.log(`client nodejs: minu(${JSON.stringify(ps)})=${r}`)
+   *                     console.log(`client nodejs: minu(${JSON.stringify(ps)})=${r}`)
    *                 })
+   *                 .catch(function(err) {
+   *                     console.log('client nodejs: minu: catch: ', err)
+   *                  })
    *         }
    *
    *         let i = 100

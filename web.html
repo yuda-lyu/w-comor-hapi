@@ -39,14 +39,14 @@
                                 wsemi.bodyLog('client web: add('+JSON.stringify(ps)+')='+r)
                             })
                             .catch(function(err) {
-                                console.log('client web: add: catch', err)
+                                wsemi.bodyLog('client web: add: catch', err)
                             })
                         wo.minu(ps)
                             .then(function(r) {
                                 wsemi.bodyLog('client web: minu('+JSON.stringify(ps)+')='+r)
                             })
                             .catch(function(err) {
-                                console.log('client web: minu: catch', err)
+                                wsemi.bodyLog('client web: minu: catch', err)
                             })
                     }
 
