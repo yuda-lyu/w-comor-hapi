@@ -123,7 +123,7 @@ new HtClient(opt)
     })
 ```
 
-### In a brohter(UMD module):
+### In a browser(UMD module):
 > **Note:** `ht-client` depends on `axios`.
 
 [Optional] Add script with nomodule for IE11.
