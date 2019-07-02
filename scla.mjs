@@ -1,5 +1,5 @@
-import HtClient from './src/HtClient.mjs'
-//import HtClient from './dist/ht-client-node.umd.js'
+//import HtClient from './src/HtClient.mjs'
+import HtClient from './dist/ht-client.umd.js'
 
 let opt = {
     url: 'http://localhost:8080/api',
@@ -19,14 +19,14 @@ new HtClient(opt)
         function core(ps) {
             wo.add(ps)
                 .then(function(r) {
-                    console.log(`client nodejs[port:8080]: add(${JSON.stringify(ps)})=${r}`)
+                    console.log('client nodejs[port:8080]: add(' + JSON.stringify(ps) + ')=' + r)
                 })
                 .catch(function(err) {
                     console.log('client nodejs[port:8080]: add: catch: ', err)
                 })
             wo.minu(ps)
                 .then(function(r) {
-                    console.log(`client nodejs[port:8080]: minu(${JSON.stringify(ps)})=${r}`)
+                    console.log('client nodejs[port:8080]: minu(' + JSON.stringify(ps) + ')=' + r)
                 })
                 .catch(function(err) {
                     console.log('client nodejs[port:8080]: minu: catch: ', err)

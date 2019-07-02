@@ -97,17 +97,17 @@ new HtClient(opt)
         function core(ps) {
             wo.add(ps)
                 .then(function(r) {
-                    console.log(`client nodejs: add(${JSON.stringify(ps)})=${r}`)
+                    console.log('client nodejs: add(' + JSON.stringify(ps) + ')=' + r)
                 })
                 .catch(function(err) {
-                    console.log('client: nodejs: add: catch: ', err)
+                    console.log('client nodejs: add: catch: ', err)
                 })
             wo.minu(ps)
                 .then(function(r) {
-                    console.log(`client nodejs: minu(${JSON.stringify(ps)})=${r}`)
+                    console.log('client nodejs: minu(' + JSON.stringify(ps) + ')=' + r)
                 })
                 .catch(function(err) {
-                    console.log('client: nodejs: minu: catch: ', err)
+                    console.log('client nodejs: minu: catch: ', err)
                 })
         }
 

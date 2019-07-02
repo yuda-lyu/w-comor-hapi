@@ -1,5 +1,5 @@
-import HtServer from './src/HtServer.mjs'
-//import HtServer from './dist/ht-server.umd.js'
+//import HtServer from './src/HtServer.mjs'
+import HtServer from './dist/ht-server.umd.js'
 
 function random(min, max) {
     return Math.floor(Math.random() * max) + min
