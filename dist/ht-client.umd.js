@@ -5319,7 +5319,7 @@
   }
 
   /**
-   * 建立http API伺服器使用者(Node.js與Browser)端物件
+   * 建立http API使用者(Node.js與Browser)端物件
    *
    * @param {Object} opt 輸入設定參數物件
    * @param {String} [opt.url='http://localhost:8080/api'] 輸入http API伺服器網址，預設為'http://localhost:8080/api'
