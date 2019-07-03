@@ -3,6 +3,7 @@ import Hapi from '@hapi/hapi'
 import cloneDeep from 'lodash/cloneDeep'
 import keys from 'lodash/keys'
 import genPm from 'wsemi/src/genPm.mjs'
+import genID from 'wsemi/src/genID.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
 import getdtvstr from 'wsemi/src/getdtvstr.mjs'
 import getdtv from 'wsemi/src/getdtv.mjs'
@@ -47,6 +48,9 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  *             resolve(funcs)
  *         })
  *     },
+ *     onClientChange: function(clients, opt) {
+ *         console.log(`Server[port:${opt.port}] now clients: ${clients.length}`)
+ *     },
  *     funcs: {
  *         add: function({ p1, p2 }) {
  *             return new Promise(function(resolve, reject) {
@@ -76,6 +80,7 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  *
  */
 function HtServer(opt) {
+    let clients = []
 
 
     //cloneDeep
@@ -140,16 +145,12 @@ function HtServer(opt) {
                     funcs = await opt.filterFuncs(token, funcs)
                 }
 
-                //res
-                let res = { output: { sys: 'sys', funcs: funcs } }
-
-                //return funcs
-                return JSON.stringify(res)
+                //data
+                data = { output: { sys: 'sys', funcs: funcs } }
 
             }
-
             //call
-            if (arrhas(funcs, func)) {
+            else if (arrhas(funcs, func)) {
 
                 //call func in opt.funcs
                 let output = await opt['funcs'][func](input)
@@ -157,19 +158,25 @@ function HtServer(opt) {
                 //add output
                 data['output'] = output
 
-                //return data
-                return JSON.stringify(data)
-
             }
             else {
                 //return no func
-                return JSON.stringify({ err: `can not find: ${func}` })
+
+                //add output
+                data['output'] = { err: `can not find: ${func}` }
+
             }
         }
         else {
             //return no authenticate
-            return JSON.stringify({ err: `can not authenticate token: ${token}` })
+
+            //add output
+            data['output'] = { err: `can not authenticate token: ${token}` }
+
         }
+
+        //return data
+        return JSON.stringify(data)
 
     }
 
@@ -179,8 +186,46 @@ function HtServer(opt) {
         path: '/' + opt.apiName,
         method: 'POST',
         handler: function (req, res) {
+            let pm = genPm()
+
+            //id
+            let id = genID()
+
+            //push
+            clients.push({
+                id: id,
+                data: req,
+            })
+            console.log('push', id)
+            if (isfun(opt.onClientChange)) {
+                opt.onClientChange(clients, opt)
+            }
+
+            //data
             let data = req.payload
-            return execFunction(data)
+
+            //execFunction
+            execFunction(data)
+                .then(function(r) {
+                    pm.resolve(r)
+                })
+                .catch(function(r) {
+                    pm.reject(r)
+                })
+                .finally(function() {
+
+                    //remove
+                    console.log('remove', id)
+                    clients = clients.filter(function(c) {
+                        return c.id !== id
+                    })
+                    if (isfun(opt.onClientChange)) {
+                        opt.onClientChange(clients, opt)
+                    }
+
+                })
+
+            return pm
         },
     }
 

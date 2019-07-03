@@ -44,7 +44,7 @@ let optPlugins = [
     postcss({
         extensions: ['.css']
     }),
-    //minify({ comments: false, }),
+    minify({ comments: false, }),
 ]
 
 

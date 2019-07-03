@@ -25,6 +25,9 @@ let opt = {
             resolve(funcs)
         })
     },
+    onClientChange: function(clients, opt) {
+        console.log(`Server[port:${opt.port}] now clients: ${clients.length}`)
+    },
     funcs: {
         add: function({ p1, p2 }) {
             return new Promise(function(resolve, reject) {

@@ -1,5 +1,5 @@
 # w-comor-hapi
-A http communicator in nodejs and browser.
+A http communicator in nodejs and browser. Mapping functions in nodejs to end points.
 
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
@@ -121,6 +121,9 @@ new HtClient(opt)
         }, 1000)
 
     })
+    .catch(function(err) {
+        console.log('client nodejs: catch', err)
+    })
 ```
 
 ### In a browser(UMD module):
@@ -136,7 +139,7 @@ new HtClient(opt)
 ```
 [Necessary] Add script for ht-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.0/dist/ht-client.umd.js"></script>></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.0/dist/ht-client.umd.js"></script>
 ```
 #### Example for `ht-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
@@ -185,5 +188,8 @@ new HtClient(opt)
             })
         }, 1000)
 
+    })
+    .catch(function(err) {
+        console.log('client web: catch', err)
     })
 ```

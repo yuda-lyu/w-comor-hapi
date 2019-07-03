@@ -1,7 +1,7 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.0.0",
-  "description": "A http communicator in nodejs and browser.",
+  "version": "1.0.1",
+  "description": "A http communicator in nodejs and browser. Mapping functions in nodejs to end points.",
   "main": "dist/ht-server.umd.js",
   "dependencies": {
     "@hapi/hapi": "^18.3.1",
@@ -63,7 +63,8 @@
     "nodejs",
     "browser",
     "wrapper",
-    "communicator"
+    "communicator",
+    "RPC"
   ],
   "author": "yuda-lyu(semisphere)",
   "license": "MIT",

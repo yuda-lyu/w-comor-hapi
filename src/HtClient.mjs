@@ -25,32 +25,32 @@ import clearXSS from 'wsemi/src/clearXSS.mjs'
  *     url: 'http://localhost:8080/api',
  *     token: '*',
  *         error: function(err) {
- *             console.log('client nodejs: error:', err)
+ *             console.log('client: error:', err)
  *         },
  *         reconn: function() {
- *             console.log('client nodejs: reconn')
+ *             console.log('client: reconn')
  *         },
  * }
  *
  * //HtClient
  * new HtClient(opt)
  *     .then(function(wo) {
- *         console.log('client nodejs: funcs: ', wo)
+ *         console.log('client: funcs: ', wo)
  *
  *         function core(ps) {
  *             wo.add(ps)
  *                 .then(function(r) {
- *                     console.log(`client nodejs: add(${JSON.stringify(ps)})=${r}`)
+ *                     console.log(`client: add(${JSON.stringify(ps)})=${r}`)
  *                 })
  *                 .catch(function(err) {
- *                     console.log('client nodejs: add: catch: ', err)
+ *                     console.log('client: add: catch: ', err)
  *                  })
  *             wo.minu(ps)
  *                 .then(function(r) {
- *                     console.log(`client nodejs: minu(${JSON.stringify(ps)})=${r}`)
+ *                     console.log(`client: minu(${JSON.stringify(ps)})=${r}`)
  *                 })
  *                 .catch(function(err) {
- *                     console.log('client nodejs: minu: catch: ', err)
+ *                     console.log('client: minu: catch: ', err)
  *                  })
  *         }
  *
@@ -63,6 +63,9 @@ import clearXSS from 'wsemi/src/clearXSS.mjs'
  *             })
  *         }, 1000)
  *
+ *     })
+ *     .catch(function(err) {
+ *         console.log('client: catch', err)
  *     })
  *
  */
