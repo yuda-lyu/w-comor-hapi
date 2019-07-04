@@ -24,7 +24,7 @@ async function main() {
     let rdme = getReadme()
 
     //replace
-    let c = rdme.content.replace(/(w-comor-websocket@)+(\d+.\d+.\d+)/g, 'w-comor-websocket@' + pkg.version)
+    let c = rdme.content.replace(/(w-comor-hapi@)+(\d+.\d+.\d+)/g, 'w-comor-hapi@' + pkg.version)
 
     //write
     //console.log(c)
