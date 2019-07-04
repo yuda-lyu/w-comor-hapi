@@ -14,8 +14,8 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 
 ## Parts
 `w-comor-hapi` includes 2 parts: 
-* `ht-server`: for node server
-* `ht-client`: for node or browser client
+* `ht-server`: for nodejs server
+* `ht-client`: for nodejs or browser client
 
 ## Installation
 ### Using npm(ES6 module):
@@ -51,6 +51,9 @@ let opt = {
             })
             resolve(funcs)
         })
+    },
+    onClientChange: function(clients, opt) {
+        console.log(`Server[port:${opt.port}] now clients: ${clients.length}`)
     },
     funcs: {
         add: function({ p1, p2 }) {
