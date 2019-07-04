@@ -2,6 +2,9 @@ import Hapi from '@hapi/hapi'
 //import Inert from '@hapi/inert' //提供靜態檔案
 import cloneDeep from 'lodash/cloneDeep'
 import keys from 'lodash/keys'
+import get from 'lodash/get'
+import uniqBy from 'lodash/uniqBy'
+import isEqual from 'lodash/isEqual'
 import genPm from 'wsemi/src/genPm.mjs'
 import genID from 'wsemi/src/genID.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
@@ -48,8 +51,8 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  *             resolve(funcs)
  *         })
  *     },
- *     onClientChange: function(clients, opt) {
- *         console.log(`Server[port:${opt.port}] now clients: ${clients.length}`)
+ *     onClientChange: function(conns, opt) {
+ *         console.log(`Server[port:${opt.port}] now conns: ${conns.length}`)
  *     },
  *     funcs: {
  *         add: function({ p1, p2 }) {
@@ -80,6 +83,7 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  *
  */
 function HtServer(opt) {
+    let conns = []
     let clients = []
 
 
@@ -181,6 +185,18 @@ function HtServer(opt) {
     }
 
 
+    //changeConns
+    function changeConns(conns) {
+        if (isfun(opt.onClientChange)) {
+            let clients_new = uniqBy(conns, 'clientId')
+            if (!isEqual(clients, clients_new)) {
+                clients = clients_new
+                opt.onClientChange(clients, opt)
+            }
+        }
+    }
+
+
     //api
     let api = {
         path: '/' + opt.apiName,
@@ -188,18 +204,25 @@ function HtServer(opt) {
         handler: function (req, res) {
             let pm = genPm()
 
-            //id
-            let id = genID()
+            //connId
+            let connId = genID()
+
+            //clientId
+            let clientId = get(req.payload, 'clientId')
+
+            //client
+            let client = {
+                headers: req.headers,
+                info: req.info,
+            }
 
             //push
-            clients.push({
-                id: id,
-                data: req,
+            conns.push({
+                clientId: clientId,
+                connId: connId,
+                data: client,
             })
-            console.log('push', id)
-            if (isfun(opt.onClientChange)) {
-                opt.onClientChange(clients, opt)
-            }
+            changeConns(conns)
 
             //data
             let data = req.payload
@@ -215,13 +238,10 @@ function HtServer(opt) {
                 .finally(function() {
 
                     //remove
-                    console.log('remove', id)
-                    clients = clients.filter(function(c) {
-                        return c.id !== id
+                    conns = conns.filter(function(c) {
+                        return c.connId !== connId
                     })
-                    if (isfun(opt.onClientChange)) {
-                        opt.onClientChange(clients, opt)
-                    }
+                    changeConns(conns)
 
                 })
 

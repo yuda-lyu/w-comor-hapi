@@ -4,7 +4,7 @@ import genPm from 'wsemi/src/genPm.mjs'
 import isfun from 'wsemi/src/isfun.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
 import clearXSS from 'wsemi/src/clearXSS.mjs'
-//import ispint from 'wsemi/src/ispint.mjs'
+import genID from 'wsemi/src/genID.mjs'
 
 
 /**
@@ -72,6 +72,7 @@ import clearXSS from 'wsemi/src/clearXSS.mjs'
 function HtClient(opt) {
     let pm = genPm()
     let wo = {} //回傳操作物件
+    let clientId = genID() //供伺服器識別真實連線使用者
 
 
     function core() {
@@ -164,6 +165,7 @@ function HtClient(opt) {
 
             //data
             let data = {
+                clientId: clientId,
                 token: opt.token,
                 func: func,
                 input: input,

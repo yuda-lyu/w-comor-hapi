@@ -1,6 +1,6 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A http communicator in nodejs and browser. Mapping functions in nodejs to end points.",
   "main": "dist/ht-server.umd.js",
   "dependencies": {
