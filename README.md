@@ -29,7 +29,7 @@ npm i w-comor-hapi
 import HtServer from 'w-comor-hapi/dist/ht-server.umd.js'
 
 function random(min, max) {
-    return Math.floor(Math.random()max) + min
+    return Math.floor(Math.random() * max) + min
 }
 
 let opt = {
