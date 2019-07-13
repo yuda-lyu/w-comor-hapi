@@ -56,14 +56,35 @@ let opt = {
         console.log(`Server[port:${opt.port}] now clients: ${clients.length}`)
     },
     funcs: {
-        add: function({ p1, p2 }) {
+        'group.plus': function({ p1, p2 }) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(p1 * p2)
+                }, random(100, 3000))
+            })
+        },
+        'group.div': function({ p1, p2 }) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(p1 / p2)
+                }, random(100, 3000))
+            })
+        },
+        'add': function({ p1, p2 }) {
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
                     resolve(p1 + p2)
                 }, random(100, 3000))
             })
         },
-        minu: function({ p1, p2 }) {
+        'addHide': function({ p1, p2 }) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(p1 + p2)
+                }, random(100, 3000))
+            })
+        },
+        'minu': function({ p1, p2 }) {
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
                     resolve(p1 - p2)
@@ -98,6 +119,20 @@ new HtClient(opt)
         console.log('client nodejs: funcs: ', wo)
         
         function core(ps) {
+            wo.group.plus(ps)
+                .then(function(r) {
+                    console.log('client nodejs: plus(' + JSON.stringify(ps) + ')=' + r)
+                })
+                .catch(function(err) {
+                    console.log('client nodejs: plus: catch: ', err)
+                })
+            wo.group.div(ps)
+                .then(function(r) {
+                    console.log('client nodejs: div(' + JSON.stringify(ps) + ')=' + r)
+                })
+                .catch(function(err) {
+                    console.log('client nodejs: div: catch: ', err)
+                })
             wo.add(ps)
                 .then(function(r) {
                     console.log('client nodejs: add(' + JSON.stringify(ps) + ')=' + r)
@@ -125,7 +160,7 @@ new HtClient(opt)
 
     })
     .catch(function(err) {
-        console.log('client nodejs: catch', err)
+        console.log('client nodejs: catch: ', err)
     })
 ```
 
@@ -142,7 +177,7 @@ new HtClient(opt)
 ```
 [Necessary] Add script for ht-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.3/dist/ht-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.4/dist/ht-client.umd.js"></script>
 ```
 #### Example for `ht-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
@@ -166,6 +201,20 @@ new HtClient(opt)
         console.log('client web: funcs: ', wo)
         
         function core(ps) {
+            wo.group.plus(ps)
+                .then(function(r) {
+                    console.log('client web: plus(' + JSON.stringify(ps) + ')=' + r)
+                })
+                .catch(function(err) {
+                    console.log('client web: plus: catch: ', err)
+                })
+            wo.group.div(ps)
+                .then(function(r) {
+                    console.log('client web: div(' + JSON.stringify(ps) + ')=' + r)
+                })
+                .catch(function(err) {
+                    console.log('client web: div: catch: ', err)
+                })
             wo.add(ps)
                 .then(function(r) {
                     console.log('client web: add('+JSON.stringify(ps)+')='+r)
@@ -193,6 +242,6 @@ new HtClient(opt)
 
     })
     .catch(function(err) {
-        console.log('client web: catch', err)
+        console.log('client web: catch: ', err)
     })
 ```

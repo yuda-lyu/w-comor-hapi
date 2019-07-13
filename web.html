@@ -13,6 +13,26 @@
         
         <script src="dist/ht-client.umd.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/w-jsonview-tree/dist/w-jsonview-tree.umd.js"></script>
+        <script>
+            let jv=window['w-jsonview-tree']
+            function logData(title,data){
+                let id='c'+wsemi.genID()
+                let s='<div style="margin:10px;"><div style="display:inline-block; vertical-align:top; margin-right:5px; color:#62f;">'+title+'</div><div id="'+id+'" style="display:inline-block; vertical-align:top;"></div></div>'
+                document.querySelector('body').insertAdjacentHTML('beforeend', s)
+                let ele=document.querySelector('#'+id)
+                if(data){
+                    if(wsemi.isnum(data)){
+                        ele.innerHTML=data
+                    }
+                    else{
+                        jv(data, ele, {expanded:true})
+                        ele.style.marginTop='-4px'
+                    }
+                }
+            }
+        </script>
+        
         <script>
 
             //opt
@@ -20,10 +40,10 @@
                 url: 'http://localhost:8080/api',
                 token: '*',
                 error: function(err) {
-                    wsemi.bodyLog('client web: error:', err)
+                    logData('client web: error:', err)
                 },
                 reconn: function() {
-                    wsemi.bodyLog('client web: reconn')
+                    logData('client web: reconn')
                 },
             }
 
@@ -31,22 +51,36 @@
             let HtClient = window['ht-client']
             new HtClient(opt)
                 .then(function(wo) {
-                    wsemi.bodyLog('client web: funcs: '+JSON.stringify(Object.keys(wo)))
+                    logData('client web: funcs: ', wo)
 
                     function core(ps) {
-                        wo.add(ps)
+                        wo.group.plus(ps)
                             .then(function(r) {
-                                wsemi.bodyLog('client web: add('+JSON.stringify(ps)+')='+r)
+                                logData('client web: plus(' + JSON.stringify(ps) + ') = ', r)
                             })
                             .catch(function(err) {
-                                wsemi.bodyLog('client web: add: catch', err)
+                                logData('client web: plus: catch: ', err)
+                            })
+                        wo.group.div(ps)
+                            .then(function(r) {
+                                logData('client web: div(' + JSON.stringify(ps) + ') = ', r)
+                            })
+                            .catch(function(err) {
+                                logData('client web: div: catch: ', err)
+                            })
+                        wo.add(ps)
+                            .then(function(r) {
+                                logData('client web: add(' + JSON.stringify(ps) + ') = ', r)
+                            })
+                            .catch(function(err) {
+                                logData('client web: add: catch: ', err)
                             })
                         wo.minu(ps)
                             .then(function(r) {
-                                wsemi.bodyLog('client web: minu('+JSON.stringify(ps)+')='+r)
+                                logData('client web: minu(' + JSON.stringify(ps) + ') = ', r)
                             })
                             .catch(function(err) {
-                                wsemi.bodyLog('client web: minu: catch', err)
+                                logData('client web: minu: catch: ', err)
                             })
                     }
 
@@ -61,7 +95,7 @@
 
                 })
                 .catch(function(err) {
-                    console.log('client web: catch', err)
+                    console.log('client web: catch: ', err)
                 })
 
         </script>

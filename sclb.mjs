@@ -1,5 +1,5 @@
-//import HtClient from './src/HtClient.mjs'
-import HtClient from './dist/ht-client.umd.js'
+import HtClient from './src/HtClient.mjs'
+//import HtClient from './dist/ht-client.umd.js'
 
 let opt = {
     url: 'http://localhost:8081/api',
@@ -17,6 +17,20 @@ new HtClient(opt)
         console.log('client nodejs[port:8081]: funcs: ', wo)
 
         function core(ps) {
+            wo.group.plus(ps)
+                .then(function(r) {
+                    console.log('client nodejs[port:8081]: plus(' + JSON.stringify(ps) + ')=' + r)
+                })
+                .catch(function(err) {
+                    console.log('client nodejs[port:8081]: plus: catch: ', err)
+                })
+            wo.group.div(ps)
+                .then(function(r) {
+                    console.log('client nodejs[port:8081]: div(' + JSON.stringify(ps) + ')=' + r)
+                })
+                .catch(function(err) {
+                    console.log('client nodejs[port:8081]: div: catch: ', err)
+                })
             wo.add(ps)
                 .then(function(r) {
                     console.log('client nodejs[port:8081]: add(' + JSON.stringify(ps) + ')=' + r)
@@ -44,5 +58,5 @@ new HtClient(opt)
 
     })
     .catch(function(err) {
-        console.log('client nodejs[port:8081]: catch', err)
+        console.log('client nodejs[port:8081]: catch: ', err)
     })

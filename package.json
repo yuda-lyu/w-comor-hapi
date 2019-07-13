@@ -1,6 +1,6 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A http communicator in nodejs and browser. Mapping functions in nodejs to end points.",
   "main": "dist/ht-server.umd.js",
   "dependencies": {
@@ -45,7 +45,7 @@
     "rollup-plugin-vue": "^5.0.0",
     "rollup-plugin-vue-template-compiler": "^1.0.3",
     "vue-template-compiler": "^2.6.10",
-    "wsemi": "^1.1.15"
+    "wsemi": "^1.1.16"
   },
   "scripts": {
     "test": "mocha --require @babel/register",
