@@ -65,6 +65,18 @@ let opt = {
             })
         },
     },
+    routes: [
+        {
+            method: 'GET',
+            path: '/code',
+            handler: function (req, res) {
+                //console.log(req)
+                return 'get code query: ' + JSON.stringify(req.query)
+                //http://localhost:8080/code?a=1&bb=23.45
+                // => get code query: {"a":"1","bb":"23.45"}
+            }
+        },
+    ],
 }
 
 new HtServer(opt)

@@ -177,7 +177,7 @@ new HtClient(opt)
 ```
 [Necessary] Add script for ht-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.4/dist/ht-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.5/dist/ht-client.umd.js"></script>
 ```
 #### Example for `ht-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
