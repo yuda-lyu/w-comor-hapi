@@ -156,7 +156,7 @@ function HtServer(opt) {
 
     //execFunction
     async function execFunction(data) {
-        console.log(`Server[port:${opt.port}][api:${opt.apiName}]: `, data)
+        //console.log(`Server[port:${opt.port}][api:${opt.apiName}]: `, data)
 
         //token
         let token = getdtvstr(data, 'token')
