@@ -35,7 +35,7 @@ function random(min, max) {
 let opt = {
     port: 8080,
     apiName: 'api',
-    authenticate: async function(token) { 
+    authenticate: function(token) { 
         //authenticate user by token
         return new Promise(function(resolve, reject) {
             setTimeout(function() {
@@ -43,7 +43,7 @@ let opt = {
             }, 1000)
         })
     },
-    filterFuncs: async function(token, funcs) {
+    filterFuncs: function(token, funcs) {
         //resolve funcs by authenticating user
         return new Promise(function(resolve, reject) {
             funcs = funcs.filter(function(v) {
@@ -189,7 +189,7 @@ new HtClient(opt)
 ```
 [Necessary] Add script for ht-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.6/dist/ht-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.7/dist/ht-client.umd.js"></script>
 ```
 #### Example for `ht-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
