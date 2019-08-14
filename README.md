@@ -19,7 +19,10 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 
 ## Installation
 ### Using npm(ES6 module):
-> **Note:** `ht-server` depends on `@hapi/hapi` and `ht-client` depends on `axios`.
+> **Note:** `ht-server` depends on `@hapi/hapi`.
+
+> **Note:** `ht-client` depends on `axios`.
+
 ```alias
 npm i w-comor-hapi
 ```
