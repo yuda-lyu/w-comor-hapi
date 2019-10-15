@@ -19,7 +19,7 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  * 建立http API伺服器
  *
  * @param {Object} opt 輸入設定參數物件
- * @param {Integer} [opt.serverHapi] 輸入hapi伺服器，本服務將自動加入api至route。使用外部hapi伺服器時，需開啟跨域功能，或是使用nginx反向代理轉入api請求
+ * @param {Object} [opt.serverHapi={}] 輸入hapi伺服器物件，若提供，本服務將自動加入api至route。使用外部hapi伺服器時，需開啟跨域功能，或是使用nginx反向代理轉入api請求
  * @param {Integer} [opt.port=8080] 輸入http API伺服器所在port，預設8080
  * @param {String} [opt.apiName='api'] 輸入http API伺服器網址的api名稱，預設'api'
  * @param {Function} opt.authenticate 輸入使用者身份認證函數，供伺服器端驗證之用，函數會傳入使用者端連線之token參數，回傳為Promise，resolve(true)為驗證通過，resolve(false)為驗證不通過
