@@ -284,7 +284,7 @@ function HtServer(opt) {
     }
 
 
-    async function newServer() {
+    async function startServer() {
 
         //server
         let server = Hapi.server({
@@ -314,18 +314,11 @@ function HtServer(opt) {
     }
 
 
-    //serverHapi
     if (opt.serverHapi) {
-
-        //add route
         opt.serverHapi.route(api)
-
     }
     else {
-
-        //newServer
-        newServer()
-
+        startServer()
     }
 
 
