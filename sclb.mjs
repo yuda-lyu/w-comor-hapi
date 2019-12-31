@@ -1,5 +1,5 @@
-import HtClient from './src/HtClient.mjs'
-//import HtClient from './dist/ht-client.umd.js'
+import WComorHapiClient from './src/WComorHapiClient.mjs'
+//import WComorHapiClient from './dist/w-comor-hapi-client.umd.js'
 
 let opt = {
     url: 'http://localhost:8081/api',
@@ -12,7 +12,7 @@ let opt = {
     },
 }
 
-new HtClient(opt)
+new WComorHapiClient(opt)
     .then(function(wo) {
         console.log('client nodejs[port:8081]: funcs: ', wo)
 

@@ -5,7 +5,7 @@ A http communicator in nodejs and browser. Mapping functions from nodejs to othe
 [![npm version](http://img.shields.io/npm/v/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
 [![Build Status](https://travis-ci.org/yuda-lyu/w-comor-hapi.svg?branch=master)](https://travis-ci.org/yuda-lyu/w-comor-hapi) 
 [![license](https://img.shields.io/npm/l/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
-[![gzip file size](http://img.badgesize.io/yuda-lyu/w-comor-hapi/master/dist/ht-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-comor-hapi)
+[![gzip file size](http://img.badgesize.io/yuda-lyu/w-comor-hapi/master/dist/w-comor-hapi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-comor-hapi)
 [![npm download](https://img.shields.io/npm/dt/w-comor-hapi.svg)](https://npmjs.org/package/w-comor-hapi) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-comor-hapi.svg)](https://www.jsdelivr.com/package/npm/w-comor-hapi)
 
@@ -14,22 +14,22 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 
 ## Parts
 `w-comor-hapi` includes 2 parts: 
-* `ht-server`: for nodejs server
-* `ht-client`: for nodejs or browser client
+* `w-comor-hapi-server`: for nodejs server
+* `w-comor-hapi-client`: for nodejs or browser client
 
 ## Installation
 ### Using npm(ES6 module):
-> **Note:** `ht-server` depends on `@hapi/hapi`.
+> **Note:** `w-comor-hapi-server` depends on `@hapi/hapi`.
 
-> **Note:** `ht-client` depends on `axios`.
+> **Note:** `w-comor-hapi-client` depends on `axios`.
 
 ```alias
 npm i w-comor-hapi
 ```
-#### Example for `ht-server`:
+#### Example for `w-comor-hapi-server`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/srv.mjs)]
 ```alias
-import HtServer from 'w-comor-hapi/dist/ht-server.umd.js'
+import WComorHapiServer from 'w-comor-hapi/dist/w-comor-hapi-server.umd.js'
 
 function random(min, max) {
     return Math.floor(Math.random() * max) + min
@@ -109,12 +109,12 @@ let opt = {
     ],
 }
 
-new HtServer(opt)
+new WComorHapiServer(opt)
 ```
-#### Example for `ht-client`:
+#### Example for `w-comor-hapi-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/scla.mjs)]
 ```alias
-import HtClient from 'w-comor-hapi/dist/ht-client.umd.js'
+import WComorHapiClient from 'w-comor-hapi/dist/w-comor-hapi-client.umd.js'
 
 //opt
 let opt = {
@@ -128,8 +128,8 @@ let opt = {
     },
 }
 
-//HtClient
-new HtClient(opt)
+//WComorHapiClient
+new WComorHapiClient(opt)
     .then(function(wo) {
         console.log('client nodejs: funcs: ', wo)
         
@@ -180,7 +180,7 @@ new HtClient(opt)
 ```
 
 ### In a browser(UMD module):
-> **Note:** `ht-client` depends on `axios`.
+> **Note:** `w-comor-hapi-client` depends on `axios`.
 
 [Optional] Add script with nomodule for IE11.
 ```alias
@@ -190,11 +190,11 @@ new HtClient(opt)
 ```alias
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 ```
-[Necessary] Add script for ht-client.
+[Necessary] Add script for w-comor-hapi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.19/dist/ht-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.20/dist/w-comor-hapi-client.umd.js"></script>
 ```
-#### Example for `ht-client`:
+#### Example for `w-comor-hapi-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
 ```alias
 //opt
@@ -209,9 +209,9 @@ let opt = {
     },
 }
 
-//HtClient
-let HtClient = window['ht-client']
-new HtClient(opt)
+//WComorHapiClient
+let WComorHapiClient = window['w-comor-hapi-client']
+new WComorHapiClient(opt)
     .then(function(wo) {
         console.log('client web: funcs: ', wo)
         

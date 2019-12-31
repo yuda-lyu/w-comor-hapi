@@ -1,5 +1,5 @@
-import HtServer from './src/HtServer.mjs'
-//import HtServer from './dist/ht-server.umd.js'
+import WComorHapiServer from './src/WComorHapiServer.mjs'
+//import WComorHapiServer from './dist/w-comor-hapi-server.umd.js'
 
 function random(min, max) {
     return Math.floor(Math.random() * max) + min
@@ -79,7 +79,7 @@ let opt = {
     ],
 }
 
-new HtServer(opt)
+new WComorHapiServer(opt)
 
 opt.port = 8081
-new HtServer(opt)
+new WComorHapiServer(opt)

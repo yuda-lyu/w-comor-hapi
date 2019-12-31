@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#HtClient">HtClient</a></li><li><a href="global.html#HtServer">HtServer</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#WComorHapiClient">WComorHapiClient</a></li><li><a href="global.html#WComorHapiServer">WComorHapiServer</a></li></ul>
 </nav>
 
 <div id="main">
@@ -124,7 +124,7 @@
 
     
 
-    <h4 class="name" id="HtClient"><span class="type-signature"></span>HtClient<span class="signature">(opt)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="WComorHapiClient"><span class="type-signature"></span>WComorHapiClient<span class="signature">(opt)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -136,7 +136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="HtClient.mjs.html">HtClient.mjs</a>, <a href="HtClient.mjs.html#line87">line 87</a>
+        <a href="WComorHapiClient.mjs.html">WComorHapiClient.mjs</a>, <a href="WComorHapiClient.mjs.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -189,7 +189,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>import HtClient from 'w-comor-hapi/dist/ws-client-node.umd.js'//optlet opt = {    url: 'http://localhost:8080/api',    token: '*',        error: function(err) {            console.log('client: error:', err)        },        reconn: function() {            console.log('client: reconn')        },}//HtClientnew HtClient(opt)    .then(function(wo) {        console.log('client: funcs: ', wo)        function core(ps) {            wo.group.plus(ps)                .then(function(r) {                    console.log('client: plus(' + JSON.stringify(ps) + ')=' + r)                })                .catch(function(err) {                    console.log('client: plus: catch: ', err)                })            wo.group.div(ps)                .then(function(r) {                    console.log('client: div(' + JSON.stringify(ps) + ')=' + r)                })                .catch(function(err) {                    console.log('client: div: catch: ', err)                })            wo.add(ps)                .then(function(r) {                    console.log(`client: add(${JSON.stringify(ps)})=${r}`)                })                .catch(function(err) {                    console.log('client: add: catch: ', err)                 })            wo.minu(ps)                .then(function(r) {                    console.log(`client: minu(${JSON.stringify(ps)})=${r}`)                })                .catch(function(err) {                    console.log('client: minu: catch: ', err)                 })        }        let i = 100        setInterval(function() {            i += 1            core({                p1: i,                p2: 10,            })        }, 1000)    })    .catch(function(err) {        console.log('client: catch', err)    })</code></pre>
+    <pre class="prettyprint"><code>import WComorHapiClient from 'w-comor-hapi/dist/ws-client-node.umd.js'//optlet opt = {    url: 'http://localhost:8080/api',    token: '*',        error: function(err) {            console.log('client: error:', err)        },        reconn: function() {            console.log('client: reconn')        },}//WComorHapiClientnew WComorHapiClient(opt)    .then(function(wo) {        console.log('client: funcs: ', wo)        function core(ps) {            wo.group.plus(ps)                .then(function(r) {                    console.log('client: plus(' + JSON.stringify(ps) + ')=' + r)                })                .catch(function(err) {                    console.log('client: plus: catch: ', err)                })            wo.group.div(ps)                .then(function(r) {                    console.log('client: div(' + JSON.stringify(ps) + ')=' + r)                })                .catch(function(err) {                    console.log('client: div: catch: ', err)                })            wo.add(ps)                .then(function(r) {                    console.log(`client: add(${JSON.stringify(ps)})=${r}`)                })                .catch(function(err) {                    console.log('client: add: catch: ', err)                 })            wo.minu(ps)                .then(function(r) {                    console.log(`client: minu(${JSON.stringify(ps)})=${r}`)                })                .catch(function(err) {                    console.log('client: minu: catch: ', err)                 })        }        let i = 100        setInterval(function() {            i += 1            core({                p1: i,                p2: 10,            })        }, 1000)    })    .catch(function(err) {        console.log('client: catch', err)    })</code></pre>
 
 
 
@@ -465,7 +465,7 @@
 
     
 
-    <h4 class="name" id="HtServer"><span class="type-signature"></span>HtServer<span class="signature">(opt)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="WComorHapiServer"><span class="type-signature"></span>WComorHapiServer<span class="signature">(opt)</span><span class="type-signature"></span></h4>
 
     
 
@@ -477,7 +477,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="HtServer.mjs.html">HtServer.mjs</a>, <a href="HtServer.mjs.html#line113">line 113</a>
+        <a href="WComorHapiServer.mjs.html">WComorHapiServer.mjs</a>, <a href="WComorHapiServer.mjs.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -530,7 +530,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>import HtServer from 'w-comor-hapi/dist/ht-server.umd.js'function random(min, max) {    return Math.floor(Math.random() * max) + min}let opt = {    port: 8080,    apiName: 'api',    authenticate: function(token) {        //使用token驗證使用者身份        return new Promise(function(resolve, reject) {            setTimeout(function() {                resolve(true)            }, 1000)        })    },    filterFuncs: function(token, funcs) {        //使用token驗證使用者身份與過濾可用funcs        return new Promise(function(resolve, reject) {            funcs = funcs.filter(function(v) {                return v.indexOf('Hide') &lt; 0            })            resolve(funcs)        })    },    onClientChange: function(conns, opt) {        console.log(`Server[port:${opt.port}] now conns: ${conns.length}`)    },    funcs: {        'group.plus': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 * p2)                }, random(100, 3000))            })        },        'group.div': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 / p2)                }, random(100, 3000))            })        },        'add': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 + p2)                }, random(100, 3000))            })        },        'addHide': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 + p2)                }, random(100, 3000))            })        },        'minu': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 - p2)                }, random(100, 3000))            })        },    },    routes: [        {            method: 'GET',            path: '/code',            handler: function (req, res) {                //console.log(req)                return 'get code query: ' + JSON.stringify(req.query)                //http://localhost:8080/code?a=1&amp;bb=23.45                // => get code query: {"a":"1","bb":"23.45"}            }        },    ],}new HtServer(opt)</code></pre>
+    <pre class="prettyprint"><code>import WComorHapiServer from 'w-comor-hapi/dist/w-comor-hapi-server.umd.js'function random(min, max) {    return Math.floor(Math.random() * max) + min}let opt = {    port: 8080,    apiName: 'api',    authenticate: function(token) {        //使用token驗證使用者身份        return new Promise(function(resolve, reject) {            setTimeout(function() {                resolve(true)            }, 1000)        })    },    filterFuncs: function(token, funcs) {        //使用token驗證使用者身份與過濾可用funcs        return new Promise(function(resolve, reject) {            funcs = funcs.filter(function(v) {                return v.indexOf('Hide') &lt; 0            })            resolve(funcs)        })    },    onClientChange: function(conns, opt) {        console.log(`Server[port:${opt.port}] now conns: ${conns.length}`)    },    funcs: {        'group.plus': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 * p2)                }, random(100, 3000))            })        },        'group.div': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 / p2)                }, random(100, 3000))            })        },        'add': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 + p2)                }, random(100, 3000))            })        },        'addHide': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 + p2)                }, random(100, 3000))            })        },        'minu': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 - p2)                }, random(100, 3000))            })        },    },    routes: [        {            method: 'GET',            path: '/code',            handler: function (req, res) {                //console.log(req)                return 'get code query: ' + JSON.stringify(req.query)                //http://localhost:8080/code?a=1&amp;bb=23.45                // => get code query: {"a":"1","bb":"23.45"}            }        },    ],}new WComorHapiServer(opt)</code></pre>
 
 
 
@@ -881,7 +881,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sun Dec 15 2019 12:51:15 GMT+0800 (GMT+08:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Dec 31 2019 12:52:35 GMT+0800 (GMT+08:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

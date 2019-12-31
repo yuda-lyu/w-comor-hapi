@@ -11,7 +11,7 @@
         
         <script src="https://cdn.jsdelivr.net/npm/wsemi/dist/wsemi.umd.js"></script>
         
-        <script src="dist/ht-client.umd.js"></script>
+        <script src="dist/w-comor-hapi-client.umd.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/w-consolelog/dist/w-consolelog.umd.js"></script>
         <script>
@@ -32,9 +32,9 @@
                 },
             }
 
-            //HtClient
-            let HtClient = window['ht-client']
-            new HtClient(opt)
+            //WComorHapiClient
+            let WComorHapiClient = window['w-comor-hapi-client']
+            new WComorHapiClient(opt)
                 .then(function(wo) {
                     logData('client web: funcs: ', wo)
 

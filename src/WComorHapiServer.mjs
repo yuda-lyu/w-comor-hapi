@@ -9,8 +9,6 @@ import each from 'lodash/each'
 import genPm from 'wsemi/src/genPm.mjs'
 import genID from 'wsemi/src/genID.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
-import getdtvstr from 'wsemi/src/getdtvstr.mjs'
-import getdtv from 'wsemi/src/getdtv.mjs'
 import isfun from 'wsemi/src/isfun.mjs'
 import arrhas from 'wsemi/src/arrhas.mjs'
 
@@ -27,7 +25,7 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  * @param {Array} [opt.routes=[]] 輸入伺服器額外掛載routes陣列，預設[]
  * @example
  *
- * import HtServer from 'w-comor-hapi/dist/ht-server.umd.js'
+ * import WComorHapiServer from 'w-comor-hapi/dist/w-comor-hapi-server.umd.js'
  *
  * function random(min, max) {
  *     return Math.floor(Math.random() * max) + min
@@ -107,10 +105,10 @@ import arrhas from 'wsemi/src/arrhas.mjs'
  *     ],
  * }
  *
- * new HtServer(opt)
+ * new WComorHapiServer(opt)
  *
  */
-function HtServer(opt) {
+function WComorHapiServer(opt) {
     let conns = []
     let clients = []
 
@@ -159,7 +157,7 @@ function HtServer(opt) {
         //console.log(`Server[port:${opt.port}][api:${opt.apiName}]: `, data)
 
         //token
-        let token = getdtvstr(data, 'token')
+        let token = get(data, 'token', '')
 
         //vd
         let vd = await authenticate(token)
@@ -168,10 +166,10 @@ function HtServer(opt) {
         if (vd) {
 
             //func
-            let func = getdtvstr(data, 'func')
+            let func = get(data, 'func', '')
 
             //input
-            let input = getdtv(data, 'input')
+            let input = get(data, 'input')
 
             //getFuncs
             if (func === 'getFuncs') {
@@ -325,4 +323,4 @@ function HtServer(opt) {
 }
 
 
-export default HtServer
+export default WComorHapiServer
