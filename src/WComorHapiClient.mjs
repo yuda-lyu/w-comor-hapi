@@ -4,7 +4,7 @@ import set from 'lodash/set'
 import genPm from 'wsemi/src/genPm.mjs'
 import isfun from 'wsemi/src/isfun.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
-import clearXSS from 'wsemi/src/clearXSS.mjs'
+//import clearXSS from 'wsemi/src/clearXSS.mjs'
 import genID from 'wsemi/src/genID.mjs'
 
 
@@ -111,8 +111,8 @@ function WComorHapiClient(opt) {
             //     data = JSON.stringify(data)
             // }
 
-            //clearXSS
-            data = clearXSS(data)
+            // //clearXSS
+            // data = clearXSS(data)
 
             //s
             let s = {
