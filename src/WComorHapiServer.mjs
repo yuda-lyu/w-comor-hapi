@@ -233,6 +233,16 @@ function WComorHapiServer(opt) {
     let api = {
         path: '/' + opt.apiName,
         method: 'POST',
+        options: {
+            payload: {
+                maxBytes: 1000 * 1024 * 1024, //1g
+                timeout: 3 * 60 * 1000, //3分鐘, 注意payload timeout必須小於socket timeout
+                multipart: true, //hapi 19之後修改multipart預設值為false
+            },
+            timeout: {
+                socket: 5 * 60 * 1000, //5分鐘
+            },
+        },
         handler: function (req, res) {
             let pm = genPm()
 
