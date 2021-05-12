@@ -83,3 +83,5 @@ new WComorHapiServer(opt)
 
 opt.port = 8081
 new WComorHapiServer(opt)
+
+//node --experimental-modules --es-module-specifier-resolution=node srv.mjs

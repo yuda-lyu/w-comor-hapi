@@ -19,9 +19,9 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 
 ## Installation
 ### Using npm(ES6 module):
-> **Note:** `w-comor-hapi-server` depends on `@hapi/hapi`.
+> **Note:** `w-comor-hapi-server` is mainly dependent on `@hapi/hapi`.
 
-> **Note:** `w-comor-hapi-client` depends on `axios`.
+> **Note:** `w-comor-hapi-client` is mainly dependent on `axios`.
 
 ```alias
 npm i w-comor-hapi
@@ -180,7 +180,7 @@ new WComorHapiClient(opt)
 ```
 
 ### In a browser(UMD module):
-> **Note:** `w-comor-hapi-client` depends on `axios`.
+> **Note:** `w-comor-hapi-client` is mainly dependent on `axios`.
 
 [Optional] Add script with nomodule for IE11.
 ```alias
