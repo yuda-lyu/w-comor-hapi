@@ -192,7 +192,7 @@ new WComorHapiClient(opt)
 ```
 [Necessary] Add script for w-comor-hapi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.28/dist/w-comor-hapi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.29/dist/w-comor-hapi-client.umd.js"></script>
 ```
 #### Example for `w-comor-hapi-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]

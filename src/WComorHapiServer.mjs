@@ -10,7 +10,7 @@ import genPm from 'wsemi/src/genPm.mjs'
 import genID from 'wsemi/src/genID.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
 import isfun from 'wsemi/src/isfun.mjs'
-import arrhas from 'wsemi/src/arrhas.mjs'
+import arrHas from 'wsemi/src/arrHas.mjs'
 
 
 /**
@@ -183,7 +183,7 @@ function WComorHapiServer(opt) {
 
             }
             //call
-            else if (arrhas(funcs, func)) {
+            else if (arrHas(funcs, func)) {
 
                 //call func in opt.funcs
                 let output = await opt['funcs'][func](input)
