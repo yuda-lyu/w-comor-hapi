@@ -1,18 +1,18 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "A http communicator in nodejs and browser. Mapping functions in nodejs to end points.",
   "main": "dist/w-comor-hapi-server.umd.js",
   "dependencies": {
-    "@hapi/hapi": "^20.1.5",
-    "@hapi/inert": "^6.0.3",
-    "axios": "^0.21.1",
+    "@hapi/hapi": "^20.2.0",
+    "@hapi/inert": "^6.0.4",
+    "axios": "^0.22.0",
     "lodash": "^4.17.21",
-    "wsemi": "^1.6.6",
+    "wsemi": "^1.6.19",
     "xss": "^1.0.9"
   },
   "devDependencies": {
-    "w-package-tools": "^1.0.56"
+    "w-package-tools": "^1.0.59"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",
