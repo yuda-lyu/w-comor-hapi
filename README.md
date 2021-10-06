@@ -3,7 +3,6 @@ A http communicator in nodejs and browser. Mapping functions from nodejs to othe
 
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
-[![Build Status](https://travis-ci.org/yuda-lyu/w-comor-hapi.svg?branch=master)](https://travis-ci.org/yuda-lyu/w-comor-hapi) 
 [![license](https://img.shields.io/npm/l/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-comor-hapi/master/dist/w-comor-hapi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-comor-hapi)
 [![npm download](https://img.shields.io/npm/dt/w-comor-hapi.svg)](https://npmjs.org/package/w-comor-hapi) 
