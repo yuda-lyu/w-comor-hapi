@@ -14,6 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
     <script src="scripts/nav.js" defer></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -27,7 +28,9 @@
 
 <nav >
     
+    
     <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#WComorHapiClient">WComorHapiClient</a></li><li><a href="global.html#WComorHapiServer">WComorHapiServer</a></li></ul>
+    
 </nav>
 
 <div id="main">
@@ -46,6 +49,8 @@
     
         <h2>
         
+            
+        
         </h2>
         
     
@@ -58,6 +63,7 @@
             
 
 <dl class="details">
+    
 
     
 
@@ -132,6 +138,10 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>建立http API使用者(Node.js與Browser)端物件</p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -175,26 +185,20 @@
 
 
 
-<div class="description usertext">
-    <p>建立http API使用者(Node.js與Browser)端物件</p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>import WComorHapiClient from 'w-comor-hapi/dist/ws-client-node.umd.js'//optlet opt = {    url: 'http://localhost:8080/api',    token: '*',        error: function(err) {            console.log('client: error:', err)        },        reconn: function() {            console.log('client: reconn')        },}//WComorHapiClientnew WComorHapiClient(opt)    .then(function(wo) {        console.log('client: funcs: ', wo)        function core(ps) {            wo.group.plus(ps)                .then(function(r) {                    console.log('client: plus(' + JSON.stringify(ps) + ')=' + r)                })                .catch(function(err) {                    console.log('client: plus: catch: ', err)                })            wo.group.div(ps)                .then(function(r) {                    console.log('client: div(' + JSON.stringify(ps) + ')=' + r)                })                .catch(function(err) {                    console.log('client: div: catch: ', err)                })            wo.add(ps)                .then(function(r) {                    console.log(`client: add(${JSON.stringify(ps)})=${r}`)                })                .catch(function(err) {                    console.log('client: add: catch: ', err)                 })            wo.minu(ps)                .then(function(r) {                    console.log(`client: minu(${JSON.stringify(ps)})=${r}`)                })                .catch(function(err) {                    console.log('client: minu: catch: ', err)                 })        }        let i = 100        setInterval(function() {            i += 1            core({                p1: i,                p2: 10,            })        }, 1000)    })    .catch(function(err) {        console.log('client: catch', err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -226,6 +230,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -274,6 +279,7 @@
 <span class="param-type">String</span>
 
 
+
             
             </td>
 
@@ -311,6 +317,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -352,6 +359,7 @@
 <span class="param-type">function</span>
 
 
+
             
             </td>
 
@@ -385,6 +393,7 @@
             
                 
 <span class="param-type">function</span>
+
 
 
             
@@ -435,7 +444,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -451,6 +460,7 @@
     <dd>
         
 <span class="param-type">Promise</span>
+
 
 
     </dd>
@@ -473,6 +483,10 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>建立http API伺服器</p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -516,26 +530,20 @@
 
 
 
-<div class="description usertext">
-    <p>建立http API伺服器</p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>import WComorHapiServer from 'w-comor-hapi/dist/w-comor-hapi-server.umd.js'function random(min, max) {    return Math.floor(Math.random() * max) + min}let opt = {    port: 8080,    apiName: 'api',    authenticate: function(token) {        //使用token驗證使用者身份        return new Promise(function(resolve, reject) {            setTimeout(function() {                resolve(true)            }, 1000)        })    },    filterFuncs: function(token, funcs) {        //使用token驗證使用者身份與過濾可用funcs        return new Promise(function(resolve, reject) {            funcs = funcs.filter(function(v) {                return v.indexOf('Hide') &lt; 0            })            resolve(funcs)        })    },    onClientChange: function(conns, opt) {        console.log(`Server[port:${opt.port}] now conns: ${conns.length}`)    },    funcs: {        'group.plus': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 * p2)                }, random(100, 3000))            })        },        'group.div': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 / p2)                }, random(100, 3000))            })        },        'add': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 + p2)                }, random(100, 3000))            })        },        'addHide': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 + p2)                }, random(100, 3000))            })        },        'minu': function({ p1, p2 }) {            return new Promise(function(resolve, reject) {                setTimeout(function() {                    resolve(p1 - p2)                }, random(100, 3000))            })        },    },    routes: [        {            method: 'GET',            path: '/code',            handler: function (req, res) {                //console.log(req)                return 'get code query: ' + JSON.stringify(req.query)                //http://localhost:8080/code?a=1&amp;bb=23.45                // => get code query: {"a":"1","bb":"23.45"}            }        },    ],}new WComorHapiServer(opt)</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -567,6 +575,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -615,6 +624,7 @@
 <span class="param-type">Object</span>
 
 
+
             
             </td>
 
@@ -652,6 +662,7 @@
             
                 
 <span class="param-type">Integer</span>
+
 
 
             
@@ -693,6 +704,7 @@
 <span class="param-type">String</span>
 
 
+
             
             </td>
 
@@ -732,6 +744,7 @@
 <span class="param-type">function</span>
 
 
+
             
             </td>
 
@@ -765,6 +778,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -804,6 +818,7 @@
             
                 
 <span class="param-type">Array</span>
+
 
 
             
@@ -881,7 +896,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Jan 19 2023 15:14:09 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Fri Mar 31 2023 14:29:53 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
