@@ -1,6 +1,6 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.0.34",
+  "version": "1.0.35",
   "main": "dist/w-comor-hapi-server.umd.js",
   "dependencies": {
     "@hapi/hapi": "^21.3.7",
