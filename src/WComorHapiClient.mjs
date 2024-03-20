@@ -1,6 +1,6 @@
 import axios from 'axios'
-import get from 'lodash/get'
-import set from 'lodash/set'
+import get from 'lodash-es/get'
+import set from 'lodash-es/set'
 import genPm from 'wsemi/src/genPm.mjs'
 import isfun from 'wsemi/src/isfun.mjs'
 import haskey from 'wsemi/src/haskey.mjs'
@@ -118,7 +118,7 @@ function WComorHapiClient(opt) {
             let s = {
                 method: 'POST',
                 url: opt.url,
-                data: data,
+                data,
                 // onUploadProgress: function(ev) {
                 //     let p = ev.loaded
                 //     let r = 0
@@ -180,10 +180,10 @@ function WComorHapiClient(opt) {
 
             //data
             let data = {
-                clientId: clientId,
+                clientId,
                 token: opt.token,
-                func: func,
-                input: input,
+                func,
+                input,
             }
 
             //mode

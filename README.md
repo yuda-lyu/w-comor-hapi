@@ -6,6 +6,7 @@ A http communicator in nodejs and browser. Mapping functions from nodejs to othe
 [![license](https://img.shields.io/npm/l/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-comor-hapi/master/dist/w-comor-hapi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-comor-hapi)
 [![npm download](https://img.shields.io/npm/dt/w-comor-hapi.svg)](https://npmjs.org/package/w-comor-hapi) 
+[![npm download](https://img.shields.io/npm/dm/w-comor-hapi.svg)](https://npmjs.org/package/w-comor-hapi) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-comor-hapi.svg)](https://www.jsdelivr.com/package/npm/w-comor-hapi)
 
 ## Documentation
@@ -191,7 +192,7 @@ new WComorHapiClient(opt)
 ```
 [Necessary] Add script for w-comor-hapi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.33/dist/w-comor-hapi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.34/dist/w-comor-hapi-client.umd.js"></script>
 ```
 #### Example for `w-comor-hapi-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
