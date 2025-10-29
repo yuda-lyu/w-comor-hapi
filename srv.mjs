@@ -81,4 +81,4 @@ let opt = {
 
 new WComorHapiServer(opt)
 
-//node --experimental-modules --es-module-specifier-resolution=node srv.mjs
+//node srv.mjs

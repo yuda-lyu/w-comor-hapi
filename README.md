@@ -4,7 +4,6 @@ A http communicator in nodejs and browser. Mapping functions from nodejs to othe
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
 [![license](https://img.shields.io/npm/l/w-comor-hapi.svg?style=flat)](https://npmjs.org/package/w-comor-hapi) 
-[![gzip file size](http://img.badgesize.io/yuda-lyu/w-comor-hapi/master/dist/w-comor-hapi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-comor-hapi)
 [![npm download](https://img.shields.io/npm/dt/w-comor-hapi.svg)](https://npmjs.org/package/w-comor-hapi) 
 [![npm download](https://img.shields.io/npm/dm/w-comor-hapi.svg)](https://npmjs.org/package/w-comor-hapi) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-comor-hapi.svg)](https://www.jsdelivr.com/package/npm/w-comor-hapi)
@@ -18,14 +17,12 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 * `w-comor-hapi-client`: for nodejs or browser client
 
 ## Installation
+
 ### Using npm(ES6 module):
-> **Note:** `w-comor-hapi-server` is mainly dependent on `@hapi/hapi`.
-
-> **Note:** `w-comor-hapi-client` is mainly dependent on `axios`.
-
 ```alias
 npm i w-comor-hapi
 ```
+
 #### Example for `w-comor-hapi-server`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/srv.mjs)]
 ```alias
@@ -111,6 +108,7 @@ let opt = {
 
 new WComorHapiServer(opt)
 ```
+
 #### Example for `w-comor-hapi-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/scla.mjs)]
 ```alias
@@ -180,20 +178,17 @@ new WComorHapiClient(opt)
 ```
 
 ### In a browser(UMD module):
-> **Note:** `w-comor-hapi-client` is mainly dependent on `axios`.
 
-[Optional] Add script with nomodule for IE11.
-```alias
-<script nomodule src="https://cdn.jsdelivr.net/npm/@babel/polyfill/dist/polyfill.min.js"></script>
-```
-[Necessary] Add script for axios.
+Add script for axios.
 ```alias
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 ```
-[Necessary] Add script for w-comor-hapi-client.
+
+Add script for w-comor-hapi-client.
 ```alias
 <script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.36/dist/w-comor-hapi-client.umd.js"></script>
 ```
+
 #### Example for `w-comor-hapi-client`:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-hapi/blob/master/web.html)]
 ```alias
