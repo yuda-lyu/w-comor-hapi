@@ -186,7 +186,7 @@ Add script for axios.
 
 Add script for w-comor-hapi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.44/dist/w-comor-hapi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-comor-hapi@1.0.45/dist/w-comor-hapi-client.umd.js"></script>
 ```
 
 #### Example for `w-comor-hapi-client`:
