@@ -1,16 +1,16 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "main": "dist/w-comor-hapi-server.umd.js",
   "dependencies": {
     "@hapi/hapi": "^21.3.7",
     "@hapi/inert": "^7.1.0",
     "axios": "^1.6.8",
-    "wsemi": "^1.8.78",
+    "wsemi": "^1.8.79",
     "xss": "^1.0.15"
   },
   "devDependencies": {
-    "w-package-tools": "^1.1.14"
+    "w-package-tools": "^1.1.15"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000",
