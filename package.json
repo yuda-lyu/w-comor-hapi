@@ -1,12 +1,12 @@
 {
   "name": "w-comor-hapi",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "dist/w-comor-hapi-server.umd.js",
   "dependencies": {
     "@hapi/hapi": "^21.3.7",
     "@hapi/inert": "^7.1.0",
     "axios": "^1.6.8",
-    "wsemi": "^1.9.0",
+    "wsemi": "^1.9.1",
     "xss": "^1.0.15"
   },
   "devDependencies": {
