@@ -1,5 +1,5 @@
 /*!
- * w-comor-hapi-client v1.1.37
+ * w-comor-hapi-client v1.1.38
  * (c) 2018-2021 yuda-lyu(semisphere)
  * Released under the MIT License.
  */
